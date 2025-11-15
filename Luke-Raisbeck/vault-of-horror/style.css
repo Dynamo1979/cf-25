@@ -1,0 +1,321 @@
+
+/* ----------------------------------------------------- */
+/* GLOBAL                                                 */
+/* ----------------------------------------------------- */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  font-family: Arial, sans-serif;
+}
+
+/* ----------------------------------------------------- */
+/* 4:3 FRAME                                              */
+/* ----------------------------------------------------- */
+
+.frame {
+  width: 1200px;
+  height: 900px;
+  background: #000;
+  border: 5px solid #00ff66;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+/* ----------------------------------------------------- */
+/* LEFT COLUMN (TEXT)                                     */
+/* ----------------------------------------------------- */
+
+.left-side {
+  width: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  /* EXACT placement matching reference */
+  justify-content: flex-start;
+  padding-left: 60px;
+  padding-top: 110px;
+
+  gap: 80px;  /* spacing between logos */
+}
+
+.title {
+  width: 1200px;
+  transform: translateY(-74px) scale(1.4);   /* 40% bigger */
+  transform-origin: top left;                /* scale from top */
+}
+
+
+
+/* Ghoul View + Icons slightly smaller */
+.logo {
+  width: 430px;
+}.gv {
+  width: 480px;                   /* slightly bigger than Icons */
+  transform: translateY(30px);    /* move down by 30px */
+  transform-origin: top left;     /* keeps scaling clean */
+}/* ICONS OF HORROR — SLIGHTLY BIGGER */
+.io {
+  width: 500px;        /* makes it slightly bigger */
+  transform-origin: top left;
+}
+
+
+
+/* Hover effect */
+.hover-red {
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.hover-red:hover {
+  transform: scale(1.05);
+  filter: hue-rotate(-90deg) saturate(4) brightness(1.1);
+}
+
+/* ----------------------------------------------------- */
+/* RIGHT COLUMN (GHOUL)                                   */
+/* ----------------------------------------------------- */
+
+.right-side {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* This ensures the entire image can be seen */
+  overflow: hidden;
+}
+
+/* Make the ghoul fit INSIDE the frame EXACTLY */
+.ghoul {
+  max-height: 100%;
+  width: auto;
+  height: 100%;
+
+
+
+  /* Align it properly inside the frame */
+  object-fit: contain;
+
+  /* Move right to touch the border */
+  transform: translate(5px);
+}.tagline {
+  position: absolute;
+  left: 80px;             /* moves it under the buttons */
+  top: 500px;             /* this controls vertical placement */
+  width: 500px;           /* keeps the text from stretching */
+  color: #cc1b1b;         /* blood red */
+  font-size: 24px;        /* slightly bigger */
+  font-family: "Creepster", sans-serif;
+  line-height: 1.3;
+  text-shadow: 2px 2px 0px black;
+  z-index: 3;             /* sits ABOVE border but BELOW ghoul */
+}
+.tagline {
+  position: absolute;
+  left: 80px;
+  top: 570px;
+  width: 550px;
+  color: #cc1b1b;
+  font-size: 32px;
+  font-family: 'Nosifer', cursive;
+  line-height: 1.3;
+  text-shadow: 2px 2px 0 black;
+  z-index: 3;
+}
+/* --- GHOUl VIEW GRID FIX --- */
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 2px solid #00ff66;
+}
+.thumbnail {
+    width: 280px;       /* exact, equal poster size */
+    height: 420px;      /* exact, equal height */
+    object-fit: cover;  /* fills the box without stretching weirdly */
+    border: 3px solid #00ff44;
+}
+.grid-3 {
+    display: flex;
+    justify-content: center; 
+    gap: 40px; 
+    margin-top: 50px;
+}
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    color: #ff3333; /* red */
+    font-family: "Creepster", cursive;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    color: #ff6666;
+    transform: scale(1.05);
+}
+.back-link {
+    font-family: "Creepster", cursive;
+    color: red;
+    font-size: 28px;
+    margin: 20px;
+    display: inline-block;
+}
+.back-link:hover {
+    color: #ff4444;
+}
+.poster-container {
+    display: flex;
+    justify-content: center;   /* centers ALL posters */
+    align-items: flex-start;
+    gap: 60px;                 /* spacing between posters */
+    margin-top: 40px;
+}
+
+.poster {
+    height: 500px;             /* same size for all posters */
+    width: auto;               /* keeps proportions correct */
+    border: none;              /* removes green borders */
+}
+#poster1 {
+    transform: translate(50px, 150px); /* move left/right, up/down */
+}
+
+#poster2 {
+    transform: translate(50px, 150px);    /* center reference poster */
+}
+
+#poster3 {
+    transform: translate(50px, 150px);  /* move left/right, up/down */
+}#poster1:hover {
+    transform: translate(50px, 150px) scale(1.05);
+    transition: transform 0.25s ease;
+}
+
+#poster2:hover {
+    transform: translate(50px, 150px) scale(1.05);
+    transition: transform 0.25s ease;
+}
+
+#poster3:hover {
+    transform: translate(50px, 150px) scale(1.05);
+    transition: transform 0.25s ease;
+}
+
+.back-button {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+    font-family: "Nosifer", sans-serif;
+    font-size: 34px;
+    color: #ff0000;       /* deep blood red */
+    text-decoration: none;
+    text-shadow: 3px 3px 8px black;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.back-button:hover {
+    color: #ff4d4d;       /* lighter glowing blood */
+    transform: scale(1.06);
+}
+
+
+.back-button:hover {
+    color: #ff5555;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+.movie-layout {
+    display: flex;
+    gap: 40px;
+    margin-top: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.movie-poster {
+    height: 600px;
+    width: auto;
+    border: none;
+}
+
+.movie-title {
+    font-family: "Nosifer", sans-serif;
+    font-size: 48px;
+    color: #ff0000;
+    margin-bottom: 20px;
+}
+
+.movie-text {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+    line-height: 1.4;
+    max-width: 600px;
+}
+.gv-back-button {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+    font-family: "Nosifer", sans-serif;
+    font-size: 34px;
+    color: #ff0000;          /* blood red */
+    text-decoration: none;
+    text-shadow: 3px 3px 8px black;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.gv-back-button:hover {
+    color: #ff4d4d;          /* lighter red on hover */
+    transform: scale(1.05);
+}
+.icons-page .poster {
+    height: 450px;   /* ← change this number to whatever size you want */
+    width: auto;
+}
+/* ICONS OF HORROR — custom poster positions */
+.icons-page #poster1 {
+    transform: translate(30px, 150px);
+}
+
+.icons-page #poster2 {
+    transform: translate(30px, 150px);
+}
+
+.icons-page #poster3 {
+    transform: translate(30px, 150px);
+}
+.icons-page #poster1:hover {
+    transform: translate(0px, 150px) scale(1.05);
+    transition: transform 0.25s ease;
+}
+
+.icons-page #poster2:hover {
+    transform: translate(30px, 150px) scale(1.05);
+    transition: transform 0.25s ease;
+}
+
+.icons-page #poster3:hover {
+    transform: translate(60px, 150px) scale(1.05);
+    transition: transform 0.25s ease;
+}
